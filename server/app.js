@@ -1,16 +1,18 @@
 /* App setup */
-const express = require('express')
-const bodyParser = require('body-parser')
-const flash = require('connect-flash')
+const flash = require('connect-flash'),
+      config = require('./config/config'),
+      express = require('express'),
+      bodyParser = require('body-parser'),
+      { apiRouter } = require('./routes/api.router')
+
 const app = express()
-const config = require('./config/config')
-const { apiRouter } = require('./routes/api.router')
 
-app.use(express.static(config.publicPath))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(flash())
-
-app.use('/api', apiRouter)
+app
+.use(express.static(config.publicPath))
+.use(bodyParser.urlencoded({ extended: true }))
+.use(bodyParser.json())
+.use(flash())
+/* Router */
+.use('/api', apiRouter)
 
 module.exports = app
