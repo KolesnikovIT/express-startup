@@ -1,0 +1,1 @@
+### Mongo-(mySQL)-Express-Node starter pack for Express application. Use with hbs/ejs/pug
