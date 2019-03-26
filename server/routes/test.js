@@ -12,8 +12,11 @@ class TestRouter {
 
   setupRouter() {
     this.router
+    /* /api/test/add */
     .get('/add', (req, res) => res.json({ msg: 'Adding new test item!' }))
+    /* /api/test/edit/:id */
     .get('/edit/:id', (req, res) => res.json({ msg: `Editing item with id ${req.params.id}`}))
+    /* /api/test/items */
     .get('/items', (req, res) => res.json({msg: 'All test items!'}))
   }
 }
